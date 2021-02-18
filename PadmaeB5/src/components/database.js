@@ -13,7 +13,6 @@ export const database = [
     phone: "+62 877-9139-4918",
     address: "Perum Agus Salim Residen no 9,\n Jl Agus Salim,\n Kota Banyuwangi, Jawa Timur 68416,\n Indonesia\n",
   },
-  children = [
     {
       name: "Adnin Qasifa",
       image: require('../assets/images/adninqasifa.jpg'),
@@ -28,7 +27,6 @@ export const database = [
       phone: "+62 812-1460-0345",
       address: "The Savia BSD City,\n Cluster Tevana Blok B12 No. 8\n Kec. Serpong,\n Kota Tanggerang Selatan, Jawa Barat 15311,\n Indonesia\n",
     },
-  ],
   {
     name: "Kartika Prabawati",
     image: require('../assets/images/kartika.png'),
