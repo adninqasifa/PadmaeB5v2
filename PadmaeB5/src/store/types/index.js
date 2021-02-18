@@ -1,0 +1,8 @@
+export const ACTION = {
+  SET_POSTERS: 'SET_POSTERS',
+  SET_LOADING: 'SET_LOADING'
+}
+
+export const SAGA = {
+  FETCH_REQUESTED: 'FETCH_REQUESTED'
+}
