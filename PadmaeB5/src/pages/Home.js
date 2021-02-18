@@ -31,14 +31,14 @@ const HelloWorldApp = ({navigation}) => {
             onPress={() => navigation.push('Children')}>
             <Text style={styles.buttonText}>Children</Text>
           </TouchableOpacity>
-
+          <View style={styles.lineVertical1}></View>
 
           <TouchableOpacity
             style={styles.button}
             onPress={() => navigation.push('GrandChildren')}>
             <Text style={styles.buttonText}>Grand Children</Text>
           </TouchableOpacity>
-
+          <View style={styles.lineVertical1}></View>
 
           <TouchableOpacity
             style={styles.button}
@@ -92,11 +92,17 @@ const styles = StyleSheet.create({
     backgroundColor: COLOR.white,
     alignSelf: "center",
   },
+  lineVertical1:{
+    height: 30,
+    width: 4,
+    backgroundColor: COLOR.white,
+    alignSelf: "center",
+  },
 
   button: {
-    width: 300,
+    width: 180,
     backgroundColor: COLOR.primary,
-    borderRadius: 5,
+    borderRadius: 90,
     paddingVertical: 12,
   },
   buttonText: {

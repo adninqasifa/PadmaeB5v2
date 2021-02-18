@@ -13,7 +13,7 @@ export const database = [
     phone: "+62 877-9139-4918",
     address: "Perum Agus Salim Residen no 9,\n Jl Agus Salim,\n Kota Banyuwangi, Jawa Timur 68416,\n Indonesia\n",
   },
-  children= [
+  children = [
     {
       name: "Adnin Qasifa",
       image: require('../assets/images/adninqasifa.jpg'),
