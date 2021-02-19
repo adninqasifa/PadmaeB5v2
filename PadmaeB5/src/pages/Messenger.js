@@ -11,12 +11,12 @@
 //
 // const firebaseConfig = {
 //   //Your firebase config here
-//   apiKey: "AIzaSyB-txWkuzM-8_oBjnU1gpak0nppg4P7kjE",
-//   authDomain: "docpets-finalproject-glints9.firebaseapp.com",
-//   projectId: "docpets-finalproject-glints9",
-//   storageBucket: "docpets-finalproject-glints9.appspot.com",
-//   messagingSenderId: "179299488320",
-//   appId: "1:179299488320:web:b90147ac4b93f49ec405a5",
+//   apiKey: "AIzaSyDqfXRATHigpzmvr4LI5YF32B8dx3_qbGI",
+//   authDomain: "testingchatdua.firebaseapp.com",
+//   projectId: "testingchatdua",
+//   storageBucket: "testingchatdua.appspot.com",
+//   messagingSenderId: "77644488327",
+//   appId: "1:77644488327:web:790f0a566f0976e710e222"
 // }
 //
 // if (firebase.apps.length === 0) {
@@ -106,10 +106,12 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 
-import React from 'react';
+import React, {useState} from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { GiftedChat } from 'react-native-gifted-chat'
 
 const Messenger = () => {
+
   return (
     <View style={styles.container}>
       <Text style={{color: "#FFFFFF"}}>This is Messenger Page</Text>

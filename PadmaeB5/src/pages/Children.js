@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import { StyleSheet, Text, View, ScrollView, TouchableOpacity, Image, Modal, ImageBackground } from 'react-native';
-import CardChild from '../components/CardChild';
-import { database } from "../components/database";
+import { children } from "../components/database";
 
 import COLOR from '../components/ColorCard';
+import ChildrenCard from '../components/ChildrenCard';
 
 const Children = ({navigation}) => {
   const [modalBooking, setModalBooking] = useState(false);
@@ -14,34 +14,29 @@ const Children = ({navigation}) => {
   const [address, setAddress] = useState("");
 
   return (
-    <ImageBackground
-      source={require("../assets/images/bg.jpeg")}
-      style={styles.containerBg}>
-      <View style={styles.overlay}>
+    <View style={styles.container}>
+      <Text style={styles.textHeader}>The Children of Yan Mursal and Silvia Maharani</Text>
 
-      <View style={styles.container}>
-        <Text style={styles.textHeader}>The Children of Yan Mursal and Silvia Maharani</Text>
 
-        <TouchableOpacity
-          style={[{flexDirection: "row"}, styles.border]}
-          onPress={() => navigation.push('HomeAdnin')}>
-          <Image style={styles.image} source={require("../assets/images/adninqasifa.jpg")} />
-          <Text style={styles.name}>database.</Text>
-          <Text style={styles.textNumber}>1</Text>
-        </TouchableOpacity>
+      <TouchableOpacity
+        style={[{flexDirection: "row"}, styles.border]}
+        onPress={() => navigation.push('HomeAdnin')}>
+        <Image style={styles.image} source={require("../assets/images/adninqasifa.jpg")} />
+        <Text style={styles.name}>Adnin Qasifa</Text>
+        <Text style={styles.number}>1</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={[{flexDirection: "row"}, styles.border]}
+        onPress={() => navigation.push('HomeIfa')}>
+        <Image style={styles.image} source={require("../assets/images/ifa.jpg")} />
+        <Text style={styles.name}>Syarifa Adharani</Text>
+        <Text style={styles.number}>2</Text>
+      </TouchableOpacity>
 
-        <TouchableOpacity
-          style={[{flexDirection: "row"}, styles.border]}
-          onPress={() => navigation.push('HomeIfa')}>
-          <Image style={styles.image} source={require("../assets/images/ifa.jpg")} />
-          <Text style={styles.name}>Syarifa Adharani</Text>
-          <Text style={styles.textNumber}>2</Text>
-        </TouchableOpacity>
 
-      </View>
+      {/*<ChildrenCard />*/}
 
     </View>
-  </ImageBackground>
   );
 };
 
@@ -55,14 +50,6 @@ const styles = StyleSheet.create({
     //justifyContent: 'center',
     padding: 10,
   },
-  containerBg: {
-    flex: 1,
-  },
-  overlay: {
-    flex:1,
-    backgroundColor:'rgba(255,255,255,0.2)',
-  },
-
   textHeader: {
     color: COLOR.white,
     fontSize: 20,
@@ -83,15 +70,16 @@ const styles = StyleSheet.create({
     width: 100,
     height: 100,
     margin: 7,
+    borderRadius: 50,
   },
   name: {
     color: COLOR.white,
     fontSize: 24,
     alignSelf: "flex-start",
-    //marginTop: 10,
+    marginTop: 10,
     width: 195,
   },
-  textNumber: {
+  number: {
     color: COLOR.primary,
     fontSize: 90,
     marginLeft: 5,

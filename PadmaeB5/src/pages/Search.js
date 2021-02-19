@@ -1,9 +1,9 @@
 import React from 'react';
 import { StyleSheet, Text, View, TextInput, ScrollView, Image} from 'react-native';
 import { database } from "../components/database";
-import Card from '../components/Card';
 
 import COLOR from '../components/ColorCard';
+import AllCard from '../components/AllCard';
 
 const Search = () => {
   return (
@@ -29,7 +29,7 @@ const Search = () => {
         />
       </View>
 
-      <Card />
+      <AllCard />
 
     </View>
   );
@@ -41,7 +41,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: COLOR.background,
-    padding: 5,
+    //alignItems: 'center',
+    //justifyContent: 'center',
   },
   searchbar: {
     borderRadius: 5,

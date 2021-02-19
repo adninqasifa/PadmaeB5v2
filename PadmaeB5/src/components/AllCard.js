@@ -3,6 +3,7 @@ import { StyleSheet, View, Text, ScrollView, Image, Button, TouchableOpacity, Mo
 import { database } from "../components/database";
 
 import COLOR from '../components/ColorCard';
+import ModalView from '../components/ModalView';
 
 export default function Card() {
   const [modalBooking, setModalBooking] = useState(false);
@@ -29,7 +30,6 @@ export default function Card() {
           }}>
           <Image style={styles.image} source={data.image} />
           <Text style={styles.name}>{data.name}</Text>
-          <Text style={styles.textNumber}>{data.id}</Text>
         </TouchableOpacity>
       ))}
 
@@ -41,7 +41,7 @@ export default function Card() {
         onRequestClose={() => {
           Alert.alert("Modal has been closed.");
         }}>
-
+        <View style={styles.centeredView}>
           <TouchableOpacity
             style={styles.modalBooking}
             onPress={() => { setModalBooking(!modalBooking);
@@ -57,17 +57,16 @@ export default function Card() {
               <Text style={styles.biodata}>{address}</Text>
             </View>
           </TouchableOpacity>
+        </View>
       </Modal>
+
+      {/*<ModalView />*/}
 
     </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: COLOR.background,
-  },
   border: {
     borderColor: COLOR.primary,
     backgroundColor: COLOR.background,
@@ -80,6 +79,7 @@ const styles = StyleSheet.create({
     width: 100,
     height: 100,
     margin: 7,
+    borderRadius: 50,
   },
   name: {
     color: COLOR.white,
@@ -88,14 +88,8 @@ const styles = StyleSheet.create({
     marginTop: 10,
     width: 195,
   },
-  textNumber: {
-    color: COLOR.primary,
-    fontSize: 90,
-    marginLeft: 5,
-  },
 
   biodataTitle: {
-    alignItems: "center",
     marginHorizontal: 5,
     fontSize: 25,
     fontWeight: "bold",
@@ -116,6 +110,12 @@ const styles = StyleSheet.create({
     marginLeft: 20,
   },
 
+  centeredView: {
+  flex: 1,
+  justifyContent: "center",
+  alignItems: "center",
+  //marginTop: 145,
+  },
   modalBooking: {
     backgroundColor: COLOR.background,
     margin: 20,

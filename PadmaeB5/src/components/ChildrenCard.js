@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
 import { StyleSheet, View, Text, ScrollView, Image, Button, TouchableOpacity, Modal} from 'react-native';
-import { grandchildren } from "../components/database";
+import { children } from "../components/database";
 
 import COLOR from '../components/ColorCard';
+import ModalView from '../components/ModalView';
 
-export default function Card() {
+export default function ChildrenCard() {
   const [modalBooking, setModalBooking] = useState(false);
   const [name, setName] = useState("");
   const [image, setImage] = useState("");
@@ -15,7 +16,7 @@ export default function Card() {
   return (
     <ScrollView>
 
-      {grandchildren.map((data, index) => (
+      {children.map((data, index) => (
         <TouchableOpacity
           style={[{flexDirection: "row"}, styles.border]}
           key={index}
@@ -29,7 +30,7 @@ export default function Card() {
           }}>
           <Image style={styles.image} source={data.image} />
           <Text style={styles.name}>{data.name}</Text>
-          <Text style={styles.textNumber}>{data.id}</Text>
+          <Text style={styles.number}>{data.id}</Text>
         </TouchableOpacity>
       ))}
 
@@ -41,7 +42,7 @@ export default function Card() {
         onRequestClose={() => {
           Alert.alert("Modal has been closed.");
         }}>
-
+        <View style={styles.centeredView}>
           <TouchableOpacity
             style={styles.modalBooking}
             onPress={() => { setModalBooking(!modalBooking);
@@ -57,17 +58,16 @@ export default function Card() {
               <Text style={styles.biodata}>{address}</Text>
             </View>
           </TouchableOpacity>
+        </View>
       </Modal>
+
+      {/*<ModalView />*/}
 
     </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: COLOR.background,
-  },
   border: {
     borderColor: COLOR.primary,
     backgroundColor: COLOR.background,
@@ -80,6 +80,7 @@ const styles = StyleSheet.create({
     width: 100,
     height: 100,
     margin: 7,
+    borderRadius: 50,
   },
   name: {
     color: COLOR.white,
@@ -88,7 +89,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
     width: 195,
   },
-  textNumber: {
+  number: {
     color: COLOR.primary,
     fontSize: 90,
     marginLeft: 5,
@@ -116,6 +117,12 @@ const styles = StyleSheet.create({
     marginLeft: 20,
   },
 
+  centeredView: {
+  flex: 1,
+  justifyContent: "center",
+  alignItems: "center",
+  //marginTop: 145,
+  },
   modalBooking: {
     backgroundColor: COLOR.background,
     margin: 20,
@@ -132,3 +139,15 @@ const styles = StyleSheet.create({
     elevation: 10,
   },
 });
+
+
+// onPress={() => {
+//   setModalBooking(true)
+//   setName(data.name)
+//   setImage(data.image)
+//   setDate(data.date)
+//   setPhone(data.phone)
+//   setAddress(data.address)
+// }}>
+
+//onPress={() => navigation.push('HomeAdnin')}>

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { StyleSheet, Text, View, ScrollView, TouchableOpacity, Image, Modal, ImageBackground } from 'react-native';
 import { grandchildren } from "../components/database";
-import CardGrandChild from '../components/CardGrandChild';
+import GrandChildrenCard from '../components/GrandChildrenCard';
 
 import COLOR from '../components/ColorCard';
 
@@ -14,18 +14,10 @@ const Children = () => {
   const [address, setAddress] = useState("");
 
   return (
-    <ImageBackground
-      source={require("../assets/images/bg.jpeg")}
-      style={styles.containerBg}>
-      <View style={styles.overlay}>
-
-      <View style={styles.container}>
-        <Text style={styles.textHeader}>The Grand Children of Yan Mursal and Silvia Maharani</Text>
-        <CardGrandChild />
-      </View>
-
+    <View style={styles.container}>
+      <Text style={styles.textHeader}>The Grand Children of Yan Mursal and Silvia Maharani</Text>
+      <GrandChildrenCard />
     </View>
-  </ImageBackground>
   );
 };
 
@@ -38,13 +30,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     padding: 10,
-  },
-  containerBg: {
-    flex: 1,
-  },
-  overlay: {
-    flex:1,
-    backgroundColor:'rgba(255,255,255,0.2)',
   },
 
   textHeader: {

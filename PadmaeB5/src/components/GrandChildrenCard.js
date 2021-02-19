@@ -1,22 +1,22 @@
 import React, {useState} from 'react';
 import { StyleSheet, View, Text, ScrollView, Image, Button, TouchableOpacity, Modal} from 'react-native';
-import { children } from "../components/database";
+import { grandchildren } from "../components/database";
 
 import COLOR from '../components/ColorCard';
+import ModalView from '../components/ModalView';
 
-export default function Card() {
+export default function GrandChildrenCard() {
   const [modalBooking, setModalBooking] = useState(false);
   const [name, setName] = useState("");
   const [image, setImage] = useState("");
   const [date, setDate] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
-  const [status, setStatus] = useState("");
 
   return (
     <ScrollView>
 
-      {children.map((data, index) => (
+      {grandchildren.map((data, index) => (
         <TouchableOpacity
           style={[{flexDirection: "row"}, styles.border]}
           key={index}
@@ -30,7 +30,7 @@ export default function Card() {
           }}>
           <Image style={styles.image} source={data.image} />
           <Text style={styles.name}>{data.name}</Text>
-          <Text style={styles.textNumber}>{data.id}</Text>
+          <Text style={styles.number}>{data.id}</Text>
         </TouchableOpacity>
       ))}
 
@@ -42,33 +42,33 @@ export default function Card() {
         onRequestClose={() => {
           Alert.alert("Modal has been closed.");
         }}>
-        <TouchableOpacity
-          style={styles.modalBooking}
-          onPress={() => { setModalBooking(!modalBooking);
-          }}>
-          <Image style={{width: 200, height: 200, borderRadius: 100}} source={image} />
-          <View style={styles.borderModal}>
-            <Text style={styles.biodataTitle}>{name}</Text>
-            <Text style={styles.biodataSubTitle}>Birth of Date: </Text>
-            <Text style={styles.biodata}>{date}</Text>
-            <Text style={styles.biodataSubTitle}>Phone:</Text>
-            <Text style={styles.biodata}>{phone}</Text>
-            <Text style={styles.biodataSubTitle}>Address: </Text>
-            <Text style={styles.biodata}>{address}</Text>
-          </View>
-        </TouchableOpacity>
+        <View style={styles.centeredView}>
+          <TouchableOpacity
+            style={styles.modalBooking}
+            onPress={() => { setModalBooking(!modalBooking);
+            }}>
+            <Image style={{width: 200, height: 200, borderRadius: 100}} source={image} />
+            <View style={styles.border}>
+              <Text style={styles.biodataTitle}>{name}</Text>
+              <Text style={styles.biodataSubTitle}>Birth of Date: </Text>
+              <Text style={styles.biodata}>{date}</Text>
+              <Text style={styles.biodataSubTitle}>Phone:</Text>
+              <Text style={styles.biodata}>{phone}</Text>
+              <Text style={styles.biodataSubTitle}>Address: </Text>
+              <Text style={styles.biodata}>{address}</Text>
+            </View>
+          </TouchableOpacity>
+        </View>
       </Modal>
+
+      {/*<ModalView />*/}
 
     </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: COLOR.background,
-  },
-  borderModal: {
+  border: {
     borderColor: COLOR.primary,
     backgroundColor: COLOR.background,
     borderWidth: 5,
@@ -80,15 +80,16 @@ const styles = StyleSheet.create({
     width: 100,
     height: 100,
     margin: 7,
+    borderRadius: 50,
   },
   name: {
     color: COLOR.white,
     fontSize: 24,
     alignSelf: "flex-start",
-    //marginTop: 10,
+    marginTop: 10,
     width: 195,
   },
-  textNumber: {
+  number: {
     color: COLOR.primary,
     fontSize: 90,
     marginLeft: 5,
@@ -116,6 +117,12 @@ const styles = StyleSheet.create({
     marginLeft: 20,
   },
 
+  centeredView: {
+  flex: 1,
+  justifyContent: "center",
+  alignItems: "center",
+  //marginTop: 145,
+  },
   modalBooking: {
     backgroundColor: COLOR.background,
     margin: 20,
